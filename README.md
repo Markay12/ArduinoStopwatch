@@ -29,7 +29,7 @@ Once you have all of these we can begin!
 
 Here is what we have to begin with!  
 
-![UNO Board](/media/UNOBoard.jpg)  
+<img src="\media\UNOBoard.jpg" alt="UNO Board" width="200"/> 
 ![LCD Display](/media/LCDDisp.jpg)  
 ![Standard USB-Datasync Cable](/media/USBCable.jpg)  
 
