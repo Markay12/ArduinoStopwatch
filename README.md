@@ -30,10 +30,8 @@ Once you have all of these we can begin!
 Here is what we have to begin with!  
 
 <img src="/media/UNOBoard.jpg" width="200">
-
-![UNO Board](/media/UNOBoard.jpg)   
-![LCD Display](/media/LCDDisp.jpg)  
-![Standard USB-Datasync Cable](/media/USBCable.jpg)  
+<img src="/media/LCDDisp.jpg" width="200">
+<img src="/media/USBCable.jpg" width="200">
 
 1. Now that we have our items, we can take the LCD Keypad and connect it to the terminals on the UNO Board. (Make sure to line them up and press down)  
 
