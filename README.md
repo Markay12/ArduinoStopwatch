@@ -21,3 +21,23 @@ There are a few things you are going to need to get started!
 You will also need a computer where you can connect your Arduino and get started!  
 
 ---
+
+### Getting Started!
+
+First, you need to make sure you have all the necessary materials as described above.  
+Once you have all of these we can begin!  
+
+Here is what we have to begin with!  
+
+![]()
+![]()
+![]()
+
+1. Now that we have our items, we can take the LCD Keypad and connect it to the terminals on the UNO Board. (Make sure to line them up and press down)  
+
+![]()
+
+2. Connect your Standard USB Cable to the Arduino UNO Board and connect it to your computer.  
+
+
+
