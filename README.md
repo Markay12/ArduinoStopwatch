@@ -49,7 +49,7 @@ Here is what we have to begin with!
 In order to properly program and upload our code to our new Arduino device, we need to use the [Arudino IDE](https://www.arduino.cc/en/software)
 - The current version at time of publication is IDE 1.8.13, however, most information should not see a large update
 
-<img src="/media/ArduinoTemplate.png" width="200">
+<img src="/media/ArduinoTemplate.png" width="600">
 
 We now have all the software that we need and can begin working on our Stopwatch!
 
@@ -71,7 +71,7 @@ There are two methods that are written here:
 - For our stopwatch(any digital watch) to function the time must be constantly updated and kept track of. Not only does time need to be synced but also uploaded to the device and to the screen periodically. 
 - This means, if we had a stopwatch that was updating the screen every millisecond... we would need to update our screen at least every millisecond.
     - A small issue with this is that it should be a proper subdivision of one millisecond. Suppose we chose 0.728/1 millisecond to update. Then we would see solid increments in time, however, when the millisecond would change from 1 to 2, our update would be off. This is because, though we are updating quicker than the time period it will not properly display the times as they change.
-    - The issue here should not be of issue, but something to understand for later interest
+    - The issue described here will not pertain to our project. However, this is something to understand for later interest
 
-    
+
 
