@@ -8,6 +8,7 @@ So you want to Build an Arduino Stopwatch! That's awesome and a great starting p
 ## Table of Contents
 1. Necessary Items  
 2. Getting Started  
+3. Software and Downloads
 
 
 ### Necessary Items
@@ -39,9 +40,11 @@ Here is what we have to begin with!
 <img src="/media/StepOneConnection.jpg" width="200">
 
 2. Connect your Standard USB Cable to the Arduino UNO Board and connect it to your computer.  
-3. Now we are ready to begin and can go over to our computer!
+3. Now we are ready to begin and can go over to our computer!  
 
+---
 
+### Software and Downloads
 
 
 
