@@ -29,15 +29,19 @@ Once you have all of these we can begin!
 
 Here is what we have to begin with!  
 
-<img src="/media/UNOBoard.jpg" width="200">
-<img src="/media/LCDDisp.jpg" width="200">
-<img src="/media/USBCable.jpg" width="200">
+<img src="/media/UNOBoard.jpg" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+<img src="/media/LCDDisp.jpg" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+<img src="/media/USBCable.jpg" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+<p style="clear: both;">
 
 1. Now that we have our items, we can take the LCD Keypad and connect it to the terminals on the UNO Board. (Make sure to line them up and press down)  
 
-![]()
+<img src="/media/StepOneConnection.jpg" width="200">
 
 2. Connect your Standard USB Cable to the Arduino UNO Board and connect it to your computer.  
+3. Now we are ready to begin and can go over to our computer!
+
+
 
 
 
