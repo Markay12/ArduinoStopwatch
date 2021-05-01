@@ -9,6 +9,8 @@ So you want to Build an Arduino Stopwatch! That's awesome and a great starting p
 1. Necessary Items  
 2. Getting Started  
 3. Software and Downloads
+4. Begin to Code our Arduino
+5. Full Code
 
 
 ### Necessary Items
@@ -35,7 +37,7 @@ Here is what we have to begin with!
 <img src="/media/USBCable.jpg" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;" width="200">
 <p style="clear: both;">
 
-1. Now that we have our items, we can take the LCD Keypad and connect it to the terminals on the UNO Board. (Make sure to line them up and press down)  
+1. Now that we have our items, we can take the LCD Keypad and connect it to the pins on the UNO Board. (Make sure to line them up and press down)  
 
 <img src="/media/StepOneConnection.jpg" width="200">
 
@@ -55,7 +57,7 @@ We now have all the software that we need and can begin working on our Stopwatch
 
 ---
 
-### Understanding Arduino and Code
+### Understanding Arduino
 
 The first thing you are going to notice when you begin the Arduino software is the blank template provided.  
 This template begins with two void methods, returning no output but instead controlling the actions of our Arduino  
@@ -73,5 +75,52 @@ There are two methods that are written here:
     - A small issue with this is that it should be a proper subdivision of one millisecond. Suppose we chose 0.728/1 millisecond to update. Then we would see solid increments in time, however, when the millisecond would change from 1 to 2, our update would be off. This is because, though we are updating quicker than the time period it will not properly display the times as they change.
     - The issue described here will not pertain to our project. However, this is something to understand for later interest
 
+---
 
+### Begin to Code your Arduino
+
+Great! Now that you have everything else setup, we can begin to code our Arduino stopwatch!  
+
+Let's take a look back at our code and begin  
+
+1. The first thing we are going to want to pay attention to is making sure that we include valuable imports for a working LCD screen  
+    - These two lines of code will import important libraries that allow us to communicate with our LCD screen and display our data  
+
+```c++
+
+#include <SPI.h>
+#include <LiquidCrystal.h>
+
+//not used now, at a later time --> used as reference
+void setup()
+{
+
+}
+
+void loop()
+{
+
+}
+
+```
+
+2. Now we are going to do two things before getting into our `setup()` method
+    - The first thing is setting up which pins we are using on our LCD shield which correlate physically with how we want to view our displayed information
+    - Secondly, we are going to create some variables that are used for counting and making a stopwatch. A start, stop and elapsed time.
+
+* These lines of code are going to be in between the `#include <LiquidCrystal.h>` and `void setup()` lines  
+* Unsigned long variables are extended size variables for number storage, and store 32 bits (4 bytes). Unlike standard longs unsigned longs won’t store negative numbers, making their range from 0 to 4,294,967,295 (2^32 - 1)
+    - Since we cannot count time in a negative range, it makes sense to used unsigned. The long is used because we don't know how long we are going to be running the stopwatch in the future
+
+
+```c++
+//pins used on the LCD Shield
+LiquidCrystal lcd(8,13,9,4,5,6,7);
+
+//variables used when handling our stopwatch data
+unsigned long start_time;
+unsigned long finish_time;
+unsigned long time_elapsed;
+boolean r = false;
+```
 
