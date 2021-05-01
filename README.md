@@ -224,3 +224,48 @@ The next major thing we are going to need to do is keep track of when the timer 
 
 * Debounce - The term debounce comes from electronics. When you’re pressing a button, let’s say on your TV remote, the signal travels to the microchip of the remote so quickly that before you manage to release the button, it bounces, and the microchip registers your “click” multiple times. To mitigate this, once a signal from the button is received, the microchip stops processing signals from the button for a few microseconds while it’s physically impossible for you to press it again.
 > Source: https://www.freecodecamp.org/news/javascript-debounce-example/
+
+The main addition to this function is our if conditional statement. This statement will keep moving back and forth where on one click we begin the time and show "Time Elapsed". The other conditional is when we stop the time and will show "Final Time"  
+
+```c++
+
+void StartStopUpdate()
+{
+
+    int x; //create new variable
+    x = analogRead(); //assign the button press to x. This way we can check the value and know if the counter should begin
+    if (x <= 1000 && x >= 800) //the select button
+    {
+
+        if ((millis() - timeSinceLastPress) > debounceDelay) //check to see if the button was pressed a second time considering our debounce delay
+        {
+
+            if (r = false) //initial variable to check if we should begin counting
+            {
+
+                lcd.clear(); //clear all lcd screen text (blank)
+                lcd.setCursor(2,0); //begin at bottom left of screen
+                lcd.print("Elapsed Time");
+                start_time = millis(); //save our start time for final calculation
+
+            }
+            else if (r == true)
+            {
+
+                lcd.setCursor(2,0); //same bottom left location
+                lcd.print(" Final Time ");
+
+            }
+            r = !r //switch r back and forth between false and true. Don't execute the same if statement above twice
+
+        }
+        timeSinceLastPress = millis();
+
+    }
+
+}
+```
+- `millis()` becomes our time increment for these methods
+
+Great! Now that we are done with this, we can work on displaying our result to the LCD Shield! 
+
