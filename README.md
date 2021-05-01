@@ -122,6 +122,10 @@ unsigned long start_time;
 unsigned long finish_time;
 unsigned long time_elapsed;
 boolean r = false;
+
+//variables for debounce time
+long timeSinceLastPress = 0; //time since last button press
+long debounceDelay = 50; //debounce time, which is set as low as possible
 ```
 
 3. Now we are ready to move into our `void setup()` code and we can start with something cool to get setup! 
@@ -180,3 +184,43 @@ Great! Now we can begin working on our loop! But what a good start! Getting read
 
 ### Coding the Loop method
 
+Now that we have the beginning of our stopwatch setup, we can begin to code our loop and get it working!  
+
+To make the stopwatch work as simple as possible, the loop will be comprised of two other methods, that will repeat one after another.  
+The two methods work as described below  
+1. Update the Start and Stop time and check for a button press to begin counter
+2. Display time elapsed on the LCD Shield
+
+Therefore, the first method we are going to create is `StartStopUpdate()` 
+
+We want to start our stopwatch using the `SELECT` button that is found on the LCD Shield. The SELECT button on our LCD Shield is going to correspond to an A0 value of 800-1000. Therefore, when our arduino reads a value between 800-1000, we want to begin our counter.  
+
+```c++
+void loop()
+{
+
+    StartStopUpdate();
+    //next method below
+
+}
+
+void StartStopUpdate()
+{
+
+    int x; //create new variable
+    x = analogRead(); //assign the button press to x. This way we can check the value and know if the counter should begin
+    if (x <= 1000 && x >= 800) //the select button
+    {
+
+        //begin our code to start our stopwatch
+
+    }
+
+}
+
+```
+
+The next major thing we are going to need to do is keep track of when the timer begins and when we stop the timer. What helps with this are those variables we created at the beginning! `long timeSinceLastPress` and `debounceDelay`
+
+* Debounce - The term debounce comes from electronics. When you’re pressing a button, let’s say on your TV remote, the signal travels to the microchip of the remote so quickly that before you manage to release the button, it bounces, and the microchip registers your “click” multiple times. To mitigate this, once a signal from the button is received, the microchip stops processing signals from the button for a few microseconds while it’s physically impossible for you to press it again.
+> Source: https://www.freecodecamp.org/news/javascript-debounce-example/
