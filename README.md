@@ -109,7 +109,7 @@ void loop()
     - Secondly, we are going to create some variables that are used for counting and making a stopwatch. A start, stop and elapsed time.
 
 * These lines of code are going to be in between the `#include <LiquidCrystal.h>` and `void setup()` lines  
-* Unsigned long variables are extended size variables for number storage, and store 32 bits (4 bytes). Unlike standard longs unsigned longs won’t store negative numbers, making their range from 0 to 4,294,967,295 (2^32 - 1)
+* Unsigned long variables are extended size variables for number storage, and store 32 bits (4 bytes). Unlike standard longs unsigned longs won’t store negative numbers, making their range from 0 to 4,294,967,295 (2^32-1)
     - Since we cannot count time in a negative range, it makes sense to used unsigned. The long is used because we don't know how long we are going to be running the stopwatch in the future
 
 
