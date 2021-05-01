@@ -12,6 +12,7 @@ So you want to Build an Arduino Stopwatch! That's awesome and a great starting p
 4. Begin to Code our Arduino
 5. First Upload
 6. Full Code
+7. Troubleshooting
 
 
 ### Necessary Items
@@ -153,7 +154,7 @@ Awesome! You've now uploaded the first few words to your arduino device! But how
 
 <img src="/media/ToolsTest.png" width="400">
 
-If this does not work reference Part 6 of the tutorial where we work through device manager to get this setup  
+If this does not work reference Part 7 of the tutorial where we work through device manager to get this setup  
 
 Now we can actually display some important information for our Arduino stopwatch!  
 We will be changing what we have typed previously in our `void setup()` method, but it will have the same general approach  
@@ -354,3 +355,127 @@ void DispResult()
 ```
 
 We have now completed coding our arduino! 
+
+---
+
+### Full Code
+
+```c++
+/*
+ * Arduino Stopwatch
+ * Mark Ashinhust
+ */
+
+ #include <SPI.h>
+ #include <LiquidCrystal.h>
+
+ //pins that are used on the shield
+ LiquidCrystal lcd(8,13,9,4,5,6,7);
+
+ //variables used for counting mechanism
+ unsigned long start_time, finish_time, time_elapsed;
+ boolean r = false;
+
+ //vars for button debounce time
+ long timeSinceLastPress = 0; //time since last button press
+ long debounceDelay = 50; //the debounce time, set as low as possible
+
+ void setup(){
+
+  lcd.begin(16, 2); //initialize the lcd 16 characters and 2 line
+  lcd.print("Simple");
+  lcd.setCursor(3,1); //set cursor to the fourth char on line 2
+  lcd.print("Stopwatch");
+  delay(2000); //wait two seconds
+  lcd.clear(); //clear the lcd display
+  lcd.print("Press SELECT for");
+  lcd.setCursor(2,1); //set cursor to the third char on line 2
+  lcd.print("Start & Stop");
+  
+ }
+
+ void loop(){
+
+  CheckStartStop();
+  DispResult();
+  
+ }
+
+ void CheckStartStop(){
+
+  int x = analogRead(0); //assign 'x' to the AnalogueInput (Shield button)
+  if (x < 800 && x < 600) //if the button SELECT was pressed
+  {
+    if ((millis() - timeSinceLastPress) > debounceDelay)
+    {
+      if (r ==false){
+        lcd.clear();
+        lcd.setCursor(2, 0);
+        lcd.print("Elapsed Time");
+        start_time = millis(); //save start time, difference to be used for elapsed
+      }
+      else if(r=true)
+      {
+        lcd.setCursor(2, 0);
+        lcd.print(" Final Time ");
+        
+      }
+      r = !r;
+    }
+    timeSinceLastPress = millis();
+  }
+ }
+
+ void DispResult()
+ {
+
+  if (r==true)
+  {
+    finish_time = millis(); //save the stop time, calculate difference for elapsed time
+    //declare calculation variables
+    float h, m, s, ms;
+    unsigned long over;
+
+    time_elapsed = finish_time - start_time;
+    h = int(time_elapsed/ 3600000); //calculate hours
+    over = time_elapsed % 3600000; //remainder of hours calculation
+    m = int(over/60000); //calculate minutes with remainder of hours
+    over = over % 60000; //remainder of minutes
+    s = int(over / 1000); //calculate seconds
+    ms = over % 1000; //remainder of seconds
+
+    //display final results
+    lcd.setCursor(0, 1);
+    lcd.print(h, 0); //disp hours 
+    lcd.print("h "); //use h for spacing instead of hours
+
+    lcd.print(m, 0); //disp minutes
+    lcd.print("m ");
+    
+    lcd.print(s, 0); //disp seconds
+    lcd.print("s ");
+
+    if (h < 10) //if hours are less than double digits we will have enough room
+    {
+      lcd.print(ms, 0); //disp milliseconds
+      lcd.print("ms -");
+    }
+  }
+
+ }
+```
+
+---
+
+### Device Not Found Troubleshooting
+
+Can't find your arduino device in your tools? No worries, let's fix this.  
+
+1. Make sure you have a working USB Port in your computer
+    - To do this you can plug in something else that works and see if it is recognized by your computer
+2. Check and make sure you are using a Charging Cable instead of a Data Transfer cable with your Arduino. The one I listed at the beginning should work but not all will work as some do not output and power to your device. 
+3. Check your Windows/Mac device manager and make sure that your devices are up-to-date and search for new devices  
+
+Hopefully this helps out and everything gets connected!
+
+<img src="/media/DeviceManager.png" width="500">
