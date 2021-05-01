@@ -124,3 +124,29 @@ unsigned long time_elapsed;
 boolean r = false;
 ```
 
+3. Now we are ready to move into our `void setup()` code and we can start with something cool to get setup! 
+    - Remember that this code is ran once and should just be used to setup the arduino device  
+    - We are going to do this in two steps, the first step is going to show your true programming power  
+
+```c++
+void setup()
+{
+
+    lcd.begin(16,2);
+    lcd.print("Hello World!");
+    lcd.setCursor(3,1);
+    lcd.print("I'm Alive!");
+
+}
+```
+
+
+> Awesome! You've now uploaded the first few words to your arduino device! But how do we get this to display?  
+1. Head to `Tools` at the top of your Arduino IDE
+2. Once there, you should see port as one of the options
+3. Make sure that your Arduino device is connected to a powered USB port in your computer and select this port
+
+<img src="/media/ToolsTest.png" width="400">
+
+If this does not work reference Part 6 of the tutorial where we work through device manager to get this setup  
+
