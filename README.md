@@ -172,6 +172,10 @@ void setup()
 
 Great! Now we can begin working on our loop! But what a good start! Getting ready to continue!  
 
+> Progress Pictures
+<img src="/media/MarkStopwatch.jpg" width="300">
+<img src="/media/StartStopSetup.jpg" width="300">
+
 ---
 
 ### Coding the Loop method
