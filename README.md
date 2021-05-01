@@ -10,7 +10,8 @@ So you want to Build an Arduino Stopwatch! That's awesome and a great starting p
 2. Getting Started  
 3. Software and Downloads
 4. Begin to Code our Arduino
-5. Full Code
+5. First Upload
+6. Full Code
 
 
 ### Necessary Items
@@ -177,6 +178,17 @@ void setup()
 ---
 
 ### First Upload!
+
+Let's take what we've done and upload it to our device!  
+We've already selected our device in tools, so now we choose to `Verify` our code and `Upload` it to our device.  
+
+There shouldn't be any issues with verifying our code, however, if there are just go back through the guide and see if you have any differences. Checking out the full end code may assist in seeing the full picture!  
+
+The button to verify is the left check mark and once you're done with that you can hit the rightarrow and upload it to the device! Once you hit upload take a look at your screen!  
+
+<img src="/media/VerifyUpload.png" width="200">
+
+---  
 
 Great! Now we can begin working on our loop! But what a good start! Getting ready to continue!  
 
