@@ -141,7 +141,7 @@ void setup()
 ```
 
 
-> Awesome! You've now uploaded the first few words to your arduino device! But how do we get this to display?  
+Awesome! You've now uploaded the first few words to your arduino device! But how do we get this to display?  
 1. Head to `Tools` at the top of your Arduino IDE
 2. Once there, you should see port as one of the options
 3. Make sure that your Arduino device is connected to a powered USB port in your computer and select this port
@@ -149,4 +149,30 @@ void setup()
 <img src="/media/ToolsTest.png" width="400">
 
 If this does not work reference Part 6 of the tutorial where we work through device manager to get this setup  
+
+Now we can actually display some important information for our Arduino stopwatch!  
+We will be changing what we have typed previously in our `void setup()` method, but it will have the same general approach  
+
+```c++
+void setup()
+{
+
+    lcd.begin(16, 2); //initialize the lcd 16 characters and 2 line
+    lcd.print("Mark's"); //your name
+    lcd.setCursor(3,1); //set cursor to the fourth char on line 2
+    lcd.print("Stopwatch");
+    delay(2000); //wait two seconds
+    lcd.clear(); //clear the lcd display
+    lcd.print("Press SELECT for");
+    lcd.setCursor(2,1); //set cursor to the third char on line 2
+    lcd.print("Start & Stop");
+
+}
+```
+
+Great! Now we can begin working on our loop! But what a good start! Getting ready to continue!  
+
+---
+
+### Coding the Loop method
 
