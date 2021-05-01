@@ -267,5 +267,11 @@ void StartStopUpdate()
 ```
 - `millis()` becomes our time increment for these methods
 
-Great! Now that we are done with this, we can work on displaying our result to the LCD Shield! 
+Great! Now that we are done with this, we can work on displaying our result to the LCD Shield!  
+
+Let's explain our variable `r` real quick to get a better understanding of its function if you haven't already noticed. The value of `r` being a boolean will only be one of two values `true/false`.  
+The function of the r value in our loop is to determine whether we are counting with the stopwatch or displaying the elapsed time when we stop the watch.  
+- In our case, when r = false; we are counting and when r = true; we are showing the final time  
+
+
 
