@@ -174,6 +174,10 @@ void setup()
 }
 ```
 
+---
+
+### First Upload!
+
 Great! Now we can begin working on our loop! But what a good start! Getting ready to continue!  
 
 > Progress Pictures
@@ -273,5 +277,68 @@ Let's explain our variable `r` real quick to get a better understanding of its f
 The function of the r value in our loop is to determine whether we are counting with the stopwatch or displaying the elapsed time when we stop the watch.  
 - In our case, when r = false; we are counting and when r = true; we are showing the final time  
 
+Our second method is going to be the `DispResult()` method which will be added to our `void loop()` method as well  
+
+```c++ 
+//adding to our void loop method 
+
+void loop()
+{
+
+    StartStopUpdate();
+    DispResult();
+
+}
+```
+
+Continuing below `StartStopUpdate()`  
 
 
+```c++
+void DispResult()
+{
+
+    if (r=true) //we are done counting - display final
+    {
+
+        finish_time = millis(); //save the stop time to calculate difference between start to know elapsed 
+        //main equation (end - start) = elapsed -- Ex. (10:15pm - 10:00pm) = 15 minutes elapsed
+
+        //declare final variables for time
+        //rather than long names (hour, minutes etc.) just use letter abbreviations
+        float h, m, s, ms; //going to millisecond accuracy
+        unsigned long over;
+
+        time_elapsed = finish_time - start_time; //same equation
+        h = int(time_elapsed/ 3600000); //calculate hours and type cast to integer losing accuracy but shown in minutes, seconds
+        over = time_elapsed % 3600000; //this takes the remainder of time to calculate minutes
+        m = int(over/ 60000); //calculate minutes
+        over = over % 60000; //take remainder again
+        s = int(over/ 1000); //calculate seconds
+        over = over % 1000; //remainder
+        ms = over; //no further accuracy calculations, set to remaining time
+
+        // now we can display our results to the LCD Shield!
+
+        lcd.setCursor(0, 1);
+        lcd.print(h, 0); //disp hours 
+        lcd.print("h "); //use h for spacing instead of hours
+
+        lcd.print(m, 0); //disp minutes
+        lcd.print("m ");
+
+        lcd.print(s, 0); //disp seconds
+        lcd.print("s ");
+
+        if (h < 10) //if hours are less than double digits we will have enough room
+        {
+          lcd.print(ms, 0); //disp milliseconds
+          lcd.print("ms -");
+
+        }
+    }
+
+}
+```
+
+We have now completed coding our arduino! 
