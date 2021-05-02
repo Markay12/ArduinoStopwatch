@@ -1,0 +1,26 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
+
+# Setup
+title:            Arduino Stopwatch
+tagline:          'First Projects'
+description:      'Guide to first Arduino project. Begin with little to no stress. Understand the innerworkings and code of the arduino device.'
+url:              https://www.stopwatch.markinfo.dev/
+baseurl:          /
+
+author:
+  name:           'Mark Ashinhust'
+  url:            https://www.linkedin.com/in/markashinhust/
+
+paginate:         5
+
+# Custom vars
+version:          2.1.0
+
+github:
+  repo:           https://github.com/Markay12/ArduinoStopwatch/tree/main
