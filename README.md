@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ArduinoStopwatch
 Basic counting stopwatch for Arduino
 
@@ -479,3 +480,6 @@ Can't find your arduino device in your tools? No worries, let's fix this.
 Hopefully this helps out and everything gets connected!
 
 <img src="/media/DeviceManager.png" width="500">
+=======
+# Arduino Stopwatch! 
+>>>>>>> a431c2f60b429d505adbb846d376166169382b62
